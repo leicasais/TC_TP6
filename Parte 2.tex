@@ -1,0 +1,105 @@
+\section{Aislamiento electrico}
+
+Para comprobar el aislamiento el\'ectrico del transformador, se conect\'o una
+resistencia \(R_m\) entre el generador y el bobinado de entrada del
+transformador. Luego se observ\'o simult\'aneamente la tensi\'on sobre dicha
+resistencia, \(V_{Rm}\), y la tensi\'on de salida del transformador, \(V_{out}\),
+al modificar el offset de continua de la se\~nal de entrada.
+
+El objetivo de esta medici\'on fue verificar que el transformador transmite la
+componente alterna de la se\~nal por acoplamiento magn\'etico, pero no permite
+la transferencia directa de una componente continua entre el primario y el
+secundario.
+
+El valor nominal y el valor medido de la resistencia utilizada fueron:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Elemento & Valor nominal & Valor medido \\
+\hline
+\(R_m\) & \(47\,\Omega\) & \(50\,\Omega\) \\
+\hline
+\end{tabular}
+\caption{Valor nominal y medido de la resistencia \(R_m\).}
+\end{table}
+
+\subsection{Medicion con offset de \(+5\,\mathrm{V}\)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Magnitud & Valor medido \\
+\hline
+\(V_{Rm,pp}\) & \(380\,\mathrm{mV}\) \\
+\hline
+\(V_{Rm,max}\) & \(240\,\mathrm{mV}\) \\
+\hline
+\(V_{out,pp}\) & \(170\,\mathrm{mV}\) \\
+\hline
+\(V_{out,max}\) & \(84\,\mathrm{mV}\) \\
+\hline
+\end{tabular}
+\caption{Mediciones obtenidas para un offset de \(+5\,\mathrm{V}\).}
+\end{table}
+
+\subsection{Medicion con offset de \(0\,\mathrm{V}\)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Magnitud & Valor medido \\
+\hline
+\(V_{Rm,pp}\) & \(380\,\mathrm{mV}\) \\
+\hline
+\(V_{Rm,max}\) & \(169\,\mathrm{mV}\) \\
+\hline
+\(V_{out,pp}\) & \(170\,\mathrm{mV}\) \\
+\hline
+\(V_{out,max}\) & \(84\,\mathrm{mV}\) \\
+\hline
+\end{tabular}
+\caption{Mediciones obtenidas para un offset de \(0\,\mathrm{V}\).}
+\end{table}
+
+\subsection{Medicion con offset de \(-5\,\mathrm{V}\)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Magnitud & Valor medido \\
+\hline
+\(V_{Rm,pp}\) & \(380\,\mathrm{mV}\) \\
+\hline
+\(V_{Rm,max}\) & \(105\,\mathrm{mV}\) \\
+\hline
+\(V_{out,pp}\) & \(170\,\mathrm{mV}\) \\
+\hline
+\(V_{out,max}\) & \(84\,\mathrm{mV}\) \\
+\hline
+\end{tabular}
+\caption{Mediciones obtenidas para un offset de \(-5\,\mathrm{V}\).}
+\end{table}
+
+Al comparar los tres casos, se observa que el valor de \(V_{Rm,max}\) var\'ia
+al modificar el offset de continua aplicado por el generador. Sin embargo, la
+tensi\'on de salida del transformador permanece pr\'acticamente constante:
+\(V_{out,pp}=170\,\mathrm{mV}\) y \(V_{out,max}=84\,\mathrm{mV}\) para los tres
+valores de offset ensayados.
+
+Adem\'as, el valor de \(V_{out,max}\) resulta aproximadamente igual a la mitad
+de \(V_{out,pp}\), ya que:
+
+\[
+\frac{V_{out,pp}}{2}=\frac{170\,\mathrm{mV}}{2}=85\,\mathrm{mV}
+\]
+
+Este resultado indica que la se\~nal de salida se mantiene centrada alrededor
+de cero, sin arrastrar el desplazamiento de continua presente en la entrada.
+Por lo tanto, el transformador bloquea la componente continua y solamente
+transfiere la componente alterna de la se\~nal.
+
