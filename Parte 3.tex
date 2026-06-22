@@ -1,0 +1,65 @@
+\section{Transformador con carga}
+Se ha replicado el siguiente circuito:
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.5, transform shape]
+	% Paths, nodes and wires:
+	\node[shape=rectangle, minimum width=-0.035cm, minimum height=-0.035cm] at (0, -0){};
+	\node[transformer core, cute] at (-24.695, -2.708){};
+	\draw (-25.745, -1.658) to[american resistor, l={$R_m$}, label distance=0.11cm,  v<=$V_{R_m}$, voltage/distance from node=0.4, voltage/shift=2, voltage=american, i<^=$I_{R_m}$] (-28.663, -1.616);
+	\draw (-21.908, -1.883) to[american resistor, l={$R_L$}] (-21.975, -3.689);
+	\draw (-28.707, -3.711) to[sinusoidal current source, l={$V_S$}] (-28.663, -1.616);
+	\draw (-25.745, -3.758) -| (-28.707, -3.711);
+	\draw (-23.645, -1.658) -| (-21.908, -1.883);
+	\draw (-21.975, -3.689) |- (-23.645, -3.758);
+	\node[shape=rectangle, minimum width=0.702cm, minimum height=0.541cm](N1) at (-25.9, -2.842){} node[anchor=center] at (N1.text){$L_1$} node[anchor=north west, align=left, text width=0.314cm, inner sep=6pt] at (-26.268, -2.554){};
+	\node[shape=rectangle, minimum width=-0.035cm, minimum height=-0.035cm] at (0, -0){};
+	\node[shape=rectangle, minimum width=0.579cm, minimum height=0.626cm](N2) at (-23.654, -2.781){} node[anchor=center] at (N2.text){$L_2$} node[anchor=north west, align=left, text width=0.191cm, inner sep=6pt] at (-23.962, -2.45){};
+\end{tikzpicture}
+\caption{Esquemático de transformador con carga.}
+\label{fig:traf_c_carga}
+\end{figure} 
+La fuente $V_S$ generaba una señal senoidal de $3Vpp$ de frecuencia $10 kHz$. Las inductancias son las que se midieron en la primera parte(Véase el cuadro \ref{tab:medir_L2}) de la experiencia y las resistencias nominales y medida se exponen en cuadro \ref{tab:res_real_nom}.
+\begin{table}[H]
+    \centering
+    \label{tab:res_real_nom}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Resistencia & Nominal[$\Omega$] & Medida[$\Omega$] \\ \hline
+        $R_m$ & $47$ & $48$ \\ \hline
+        $R_L$ 4 & 1000 & 980 \\ \hline
+    \end{tabular}
+    \caption{Valores medida y nominales}
+\end{table}
+
+Se quiere buscar la impedancia de entrada ($Z_{in}$) del transformador. Para eso se ha medido la rensión sobre la resistencia $V_{R_m}$ con el fin de hallar la corrientie $I_{R_m}$ que entrega la fuente. Todas las imulaciones de este inciso se realizaron aproximando $k \sim 0,54$. 
+Obteniendose así:
+\begin{table}[H]
+    \centering
+    \label{tab:res_carga_1}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Magnitud & Medida & Simulada \\ \hline
+        $I_{R_m}[mA]$ & 31,25  & 32,0 \\ \hline
+        $Z_{in}[\Omega]$ & 96 & 93,75 \\ \hline
+    \end{tabular}
+    \caption{resultados de la impedancia de entrada utilizando $L_1$ como bobina de entrada}
+\end{table}
+
+En este caso, el cálculo  a partir de las mediciones de $Z_{in} $ presenta un error del $3\%$. Este error resulta tan pequeño que puede deberse a la resolución de los instrumentos utilizados. 
+
+Posteriormente, se replica el ensayo pero invirtiendo el transformador. Entonces, en la figura \ref{fig:traf_c_carga} $L_2$ estaría en la posición de $L_1$ y viceversa. Se volvieron a tomar las medidas dando como resultado:
+\begin{table}[H]
+    \centering
+    \label{tab:res_carga_1}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Magnitud & Medida & Simulada \\ \hline
+        $I_{R_m}[mA]$ & 12,5  & 10,8 \\ \hline
+        $Z_{in}[\Omega]$ & 240 & 277,77 \\ \hline
+    \end{tabular}
+    \caption{resultados de la impedancia de entrada utilizando $L_1$ como bobina de entrada}
+\end{table}
+
+Para esta experiencia, el cálculo a partir de las mediciones de $Z_{in}$ presenta un error del $14\%$. Este error resulta bastante alto en comparación a la experiencia anterior. Esta discrepancia con respecto a la experiencia anterior puede deberse al hecho de que en este ensayo circula una corriente ligeramente menor. Entonces esta lectura puede estar sujeta a errores en la medición del instrumento. De igual manera, no es un error significativo teniendo en cuenta que se están utilizando inductores que no son comerciales. 
+

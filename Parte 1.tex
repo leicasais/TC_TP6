@@ -1,6 +1,6 @@
 \section{Medición de parámetros del transformador}
 \subsection{Inductancia}
-En primer lugar, se calculó la inductancia de los devanados del transformador utilizando la función de autobode del osciloscopio y usando un circuito RL en serie. Para este circuito se uso una resistencia auxiliar, $R_1$, de valor $1k\Omega$ y se considero la resistencia interna de la fuente, $R_f$, como $100\Omega$ . Se tomo la señal de entrada como $V_s$ y la señal de salida $V_0$. Para este caso hemos tomado como devanado principal, $L_1$, la que tiene indicada 33 espiras y como devanado secundario, $L_2$, la que tiene 50 espiras. Para buscar el valor de la inductancia se busco la frecuencia de resonancia, $\omega_0$, en el bode y usando la Ecuación: \ref{ec_calculo_L}, donde $L_i$ es la inductancia que se esta midiendo. 
+En primer lugar, se calculó la inductancia de los devanados del transformador utilizando la función de autobode del osciloscopio y usando un circuito RL en serie. Para este circuito se uso una resistencia auxiliar, $R_1$, de valor $1k\Omega$ y se considero la resistencia interna de la fuente, $R_f$, como $50\Omega$ . Se tomo la señal de entrada como $V_s$ y la señal de salida $V_0$. Para este caso hemos tomado como devanado principal, $L_1$, la que tiene indicada 33 espiras y como devanado secundario, $L_2$, la que tiene 50 espiras. Para buscar el valor de la inductancia se busco la frecuencia de resonancia, $\omega_0$, en el bode y usando la Ecuación: \ref{ec_calculo_L}, donde $L_i$ es la inductancia que se esta midiendo. 
 
 \begin{equation}
 \mathbf{L_i}=\frac{R_f\;+\;R_1}{\omega_0}
@@ -74,9 +74,12 @@ A su vez se han medido las inductancias haciendo uso del analizador de indcutanc
      \label{tab:medir_L2}
 \end{table}
 
+Los resultados de las mediciones de inductancia mostraron que el devanado $L_2$, correspondiente al bobinado de $50$ espiras, posee una inductancia mayor que el devanado $L_1$, de $33$ espiras. Este resultado es coherente con la dependencia aproximada de la inductancia con el cuadrado del número de espiras. Las inductancias calculadas a partir de los diagramas de Bode presentaron diferencias del $8,6\%$ y del $12,8\%$ respecto de las mediciones realizadas con el analizador de impedancias. Estas diferencias pueden atribuirse al mal funcionamiento del analizador de impedancias y a errores de medición de frecuencia. 
+
+
 \subsection{Factor de acoplamiento}
 
-En segundo lugar para poder estimar el factor de acoplamiento del transformador experimentalmente se utilizo la Ecuacion PONER REF \ref{}. La fuente, indicado con $V_s$, genera una senoidal de amplitud $1,5Vp$ con frecuencia $f=10kHz$. Se ha medido la tensión sobre la entrada, $V_1$, y sobre la salida, $V_2$, y teniendo en cuenta la inductancia hallada en el punto anterior fue posible aproximar el factor de acoplamiento $k$. Este parametro lo calculamos con dos experimentos diferentes, variando la posicion de las bobinas.
+En segundo lugar para poder estimar el factor de acoplamiento del transformador experimentalmente se utilizo la Ecuacion PONER REF \ref{}. La fuente, indicado con $V_s$, genera una senoidal de amplitud $3Vpp$ con frecuencia $f=10kHz$. Se ha medido la tensión sobre la entrada, $V_1$, y sobre la salida, $V_2$, y teniendo en cuenta la inductancia hallada en el punto anterior fue posible aproximar el factor de acoplamiento $k$. Este parametro fue calculado con dos experimentos diferentes, variando la posicion de las bobinas.
 
 Para el primer circuito que se puede ver en el esquematico de la Figura \ref{medidion_k_L1}. Se obtuvieron las mediciones que se pueden ver en la Tabla \ref{tab:k_1}.
 
@@ -119,7 +122,7 @@ Para el primer circuito que se puede ver en el esquematico de la Figura \ref{med
     \label{tab:k_1}
 \end{table}
 
-Luego como se puede ver en el esquematico de la Figura \ref{}, se tomaron las mismas medidas pero dando vuelta el transformador para que $L_2$ sea la bobina de entrada. Los valores obtenidos se pueden ver en la Tabla \ref{tab:k_2}. 
+Luego como se puede ver en el esquematico de la Figura \ref{medidion_k_L2}, se tomaron las mismas medidas pero dando vuelta el transformador para que $L_2$ sea la bobina de entrada. Los valores obtenidos se pueden ver en la Tabla \ref{tab:k_2}. 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[transform shape]
@@ -160,11 +163,6 @@ Luego como se puede ver en el esquematico de la Figura \ref{}, se tomaron las mi
 
 En este caso la estimación ideal del factor de acoplamiento para este transformador es ACA DEBERIA PONER ESTA EC EN INTRO Y REF $k = \sqrt{\frac{L_1}{L_2}}$. Dando así $k \sim 0,54$. 
 
-\subsection{Conclusiones}
-
-Los resultados de las mediciones de inductancia mostraron que el devanado $L_2$, correspondiente al bobinado de $50$ espiras, posee una inductancia mayor que el devanado $L_1$, de $33$ espiras. Este resultado es coherente con la dependencia aproximada de la inductancia con el cuadrado del número de espiras. Las inductancias calculadas a partir de los diagramas de Bode presentaron diferencias del $8,6\%$ y del $12,8\%$ respecto de las mediciones realizadas con el analizador de impedancias. Estas diferencias pueden atribuirse al mal funcionamiento del analizador de impedancias y a errores de medición de frecuencia. 
-
 A partir del segundo experimento, en el cual se utilizó el devanado $L_2$ como entrada, se obtuvo un factor de acoplamiento de $k\approx0,511$. Este valor presenta una diferencia relativa de aproximadamente $5,4\%$ respecto del obtenido al excitar el devanado $L_1$. La cercanía entre ambos resultados es coherente con el hecho de que el factor de acoplamiento es una propiedad del conjunto formado por los devanados y el núcleo, por lo que no debería depender de cuál de ellos se utilice como entrada. La diferencia observada puede atribuirse a la incertidumbre en la medición de las tensiones y al redondeo de los valores de inductancia. A su vez ambos valores son muy cercanos al valor de la estimación de $K$ con una diferencia menor a $5,4\%$. 
 
 Debido a que $L_2>L_1$, podemos esperar que la conexión con $L_1$ como devanado de entrada y $L_2$ como devanado de salida corresponde a la configuración elevadora de tensión. De manera inversa, al utilizar $L_2$ como entrada y $L_1$ como salida, el transformador se encuentra en configuración reductora. Sin embargo, en la primera configuración se midió una tensión de salida ligeramente menor que la tensión de entrada, a pesar de que se esperaba un aumento de tensión. Esto evidencia que el comportamiento del transformador real se aparta considerablemente del modelo ideal.  Los valores encontrados del factor de acoplamiento en las mediciones indican que el acoplamiento magnético entre ambos devanados es moderado y que una fracción significativa del flujo generado por el devanado de entrada no enlaza al devanado secundario. Esta podria ser una de las causas mas importantes por la que el modelo se aleja bastante del ideal. A pesar de esto podemos identificar experimentalmente a $L_2$ como el devanado de alta tension ya que en proporcion $V_2$ disminuyo menos cuando este se encontraba en el puerto de salida. 
-
